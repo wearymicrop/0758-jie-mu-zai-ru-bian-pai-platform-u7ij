@@ -1,0 +1,28 @@
+.chart-wrap,.table-wrap { overflow:auto; max-height:470px; scrollbar-color:#6f5968 #211922; }
+.cue-chart { min-width:640px; font-size:13px; --track:94px; }
+.lane { display:grid; grid-template-columns:var(--track) minmax(0,1fr); border-bottom:1px solid #433542; align-items:stretch; }
+.lane-label,.ruler-label { padding:8px 7px 8px 1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.lane-label small { display:block; line-height:1.15; }
+.track { position:relative; background:repeating-linear-gradient(to right, #473645 0 1px, transparent 1px var(--hour,15%)); min-height:47px; }
+.ruler .track { min-height:27px; color:var(--muted); }
+.tick { position:absolute; white-space:nowrap; top:0; font-variant-numeric:tabular-nums; padding-left:4px; }
+.cue { position:absolute; top:8px; height:29px; padding:0 3px; border:1px solid #e4ba7d; background:#6b5039; color:#fff1d9; font-size:12px; white-space:nowrap; overflow:hidden; }
+.cue[aria-pressed='true'] { background:var(--gold); color:#211724; font-weight:bold; }
+.cue.late { border-color:var(--bad); }
+.cue.reset { height:4px; top:37px; padding:0; background:#876d79; border:0; }
+.ticket { margin:0 0 9px; border:1px solid var(--rule); border-left:2px solid var(--gold); padding:10px 12px; overflow-wrap:anywhere; }
+.ticket strong { display:block; font-weight:600; }
+.ticket time { color:var(--gold); font-variant-numeric:tabular-nums; }
+.ticket.bad { border-left-color:var(--bad); }
+.ticket p { overflow-wrap:anywhere; }
+.bad-text { color:var(--bad); }
+.ticket-list { display:grid; gap:6px; max-height:249px; overflow:auto; }
+.ticket-list button { text-align:left; padding:6px 9px; }
+.ticket-list button[aria-pressed='true'] { border-color:var(--gold); }
+table { width:100%; border-collapse:collapse; }
+th,td { text-align:left; border-bottom:1px solid var(--rule); padding:10px 8px; white-space:nowrap; }
+th { position:sticky; top:0; background:#352835; color:var(--muted); font-size:13px; }
+td.number { text-align:right; font-variant-numeric:tabular-nums; }
+.file { display:inline-block; margin-top:9px; text-decoration:none; }
+.archived { display:grid; gap:10px; }
+.archived code { overflow-wrap:anywhere; }

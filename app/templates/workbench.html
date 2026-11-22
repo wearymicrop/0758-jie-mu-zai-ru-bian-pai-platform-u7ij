@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/static/stage.css">
+  <link rel="stylesheet" href="/static/lighting.css">
+</head>
+<body>
+  <aside class="wing">
+    <div class="identity"><span class="marquee" aria-hidden="true">幕</span><strong>{{ title }}</strong></div>
+    <nav aria-label="编排模块">
+      <a href="#schedule" data-view="schedule">转场排程</a><a href="#orders" data-view="orders">演出工单</a>
+      <a href="#dependencies" data-view="dependencies">工序依赖</a><a href="#calendars" data-view="calendars">工种日历</a>
+      <a href="#conflicts" data-view="conflicts">工位冲突</a><a href="#reconcile" data-view="reconcile">超时勾稽</a>
+      <a href="#dispatch" data-view="dispatch">执行清单</a>
+    </nav>
+  </aside>
+  <main>
+    <header>
+      <div><p id="day" class="eyebrow">载入日历</p><h1 id="heading">转场排程</h1></div>
+      <div class="actions"><label for="sample">输入批次</label><select id="sample"><option value="dirty">冲突场次</option><option value="clean">正常场次</option></select>
+      <button id="run" type="button" class="primary">确认归档</button></div>
+    </header>
+    <section class="kpis" id="metrics" aria-label="编排指标"></section>
+    {% include 'curtain.html' %}
+    {% include 'submission.html' %}
+    <footer><span id="status" role="status">读取样例中</span><span id="run-key">试排快照</span></footer>
+  </main>
+  <script type="module" src="/static/workbench.js"></script>
+</body>
+</html>

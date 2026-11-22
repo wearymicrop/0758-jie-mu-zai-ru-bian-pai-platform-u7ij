@@ -1,0 +1,30 @@
+﻿{"id": "A01", "show": "合奏专场", "title": "卸车与点箱", "stage": "主舞台", "role": "舞台", "duration": 35, "deadline": 1140, "release": 540, "priority": 1, "reset": 10}
+{"id": "A02", "show": "合奏专场", "title": "吊装灯架", "stage": "主舞台", "role": "灯光", "duration": 45, "deadline": 1140, "priority": 1, "needs": ["A01"]}
+{"id": "A03", "show": "合奏专场", "title": "音响联调", "stage": "主舞台", "role": "音响", "duration": 40, "deadline": 720, "priority": 1, "needs": ["A02"]}
+{"id": "A04", "show": "合奏专场", "title": "合奏走台", "stage": "主舞台", "role": "舞台", "duration": 45, "deadline": 1140, "priority": 2, "needs": ["A03"]}
+{"id": "A05", "show": "合奏专场", "title": "主场交接", "stage": "主舞台", "role": "舞台", "duration": 15, "deadline": 1140, "priority": 2, "needs": ["A04"]}
+{"id": "B01", "show": "山海舞集", "title": "铺设舞蹈地胶", "stage": "侧舞台", "role": "舞台", "duration": 35, "deadline": 1140, "priority": 1, "release": 540}
+{"id": "B02", "show": "山海舞集", "title": "侧台灯位标定", "stage": "侧舞台", "role": "灯光", "duration": 40, "deadline": 1140, "priority": 2, "needs": ["B01"]}
+{"id": "B03", "show": "山海舞集", "title": "侧台返听校验", "stage": "侧舞台", "role": "音响", "duration": 35, "deadline": 1140, "priority": 2, "needs": ["B02"]}
+{"id": "B04", "show": "山海舞集", "title": "舞群连排", "stage": "侧舞台", "role": "舞台", "duration": 60, "deadline": 1140, "priority": 3, "needs": ["B03"]}
+{"id": "B05", "show": "山海舞集", "title": "侧台交接", "stage": "侧舞台", "role": "舞台", "duration": 15, "deadline": 1140, "priority": 3, "needs": ["B04"]}
+{"id": "C01", "show": "后台保障", "title": "备用话筒配对", "stage": "排练厅", "role": "音响", "duration": 30, "deadline": 1140, "priority": 4, "release": 600}
+{"id": "C02", "show": "后台保障", "title": "道具回库", "stage": "排练厅", "role": "舞台", "duration": 30, "deadline": 1140, "priority": 4, "needs": ["C01"]}
+{"id": "C03", "show": "后台保障", "title": "调光桌备份", "stage": "排练厅", "role": "灯光", "duration": 20, "deadline": 1140, "priority": 4, "release": 660}
+{"id": "C04", "show": "后台保障", "title": "二次巡场", "stage": "主舞台", "role": "舞台", "duration": 15, "deadline": 1140, "priority": 6, "needs": ["A05"]}
+{"id": "C05", "show": "后台保障", "title": "清点侧幕", "stage": "侧舞台", "role": "舞台", "duration": 20, "deadline": 1140, "priority": 6, "needs": ["B05"]}
+{"id": "X01", "show": "后台保障", "title": "配重先验", "stage": "排练厅", "role": "舞台", "duration": 20, "deadline": 1140, "needs": ["X02"]}
+{"id": "X02", "show": "后台保障", "title": "装卸倒序", "stage": "排练厅", "role": "舞台", "duration": 15, "deadline": 1140, "needs": ["X01"]}
+{"id": "X03", "show": "后台保障", "title": "配重复核", "stage": "排练厅", "role": "舞台", "duration": 15, "deadline": 1140, "needs": ["X02"]}
+{"id": "X04", "show": "后台保障", "title": "巡线", "stage": "天桥", "role": "舞台", "duration": 30, "deadline": 1140}
+{"id": "X05", "show": "后台保障", "title": "夜间拆景", "stage": "主舞台", "role": "舞台", "duration": 25, "deadline": 1140, "release": 1120}
+{"id": "X06", "show": "后台保障", "title": "紧接夜拆", "stage": "主舞台", "role": "舞台", "duration": 15, "deadline": 1140, "needs": ["X05"]}
+{"id": "X07", "show": "后台保障", "title": "查源记录", "stage": "侧舞台", "role": "舞台", "duration": 15, "deadline": 1140, "needs": ["Z99"]}
+{"id": "X08", "show": "后台保障", "title": "自指示例", "stage": "排练厅", "role": "舞台", "duration": 15, "deadline": 1140, "needs": ["X08"]}
+{"id": "X09", "show": "后台保障", "title": "外聘检修", "stage": "侧舞台", "role": "待配置", "duration": 20, "deadline": 1140}
+{"id": "X10", "show": "后台保障", "title": "重复上传冲突", "stage": "侧舞台", "role": "舞台", "duration": 20, "deadline": 1140}
+{"id": "X10", "show": "后台保障", "title": "重复上传冲突", "stage": "侧舞台", "role": "舞台", "duration": 25, "deadline": 1140}
+{"id": "A01", "show": "合奏专场", "title": "卸车与点箱", "stage": "主舞台", "role": "舞台", "duration": 35, "deadline": 1140, "release": 540, "priority": 1, "reset": 10}
+
+{"id":"截断",
+{"id": "X11", "show": "合奏专场", "title": "卸车与点箱", "stage": "主舞台", "role": "舞台", "duration": "未知", "deadline": 1140, "release": 540, "priority": 1, "reset": 10}
