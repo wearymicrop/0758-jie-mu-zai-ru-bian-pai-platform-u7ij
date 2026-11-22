@@ -6,3 +6,20 @@
     <button type="submit" class="primary">试排并归档</button>
   </form>
 </details>
+<details id="closure-form" class="submission" hidden>
+  <summary>登记停场事件</summary>
+  <form id="recovery-form">
+    <div class="form-grid">
+      <label>事件号<input id="closure-id" value="LOCK-720" required></label>
+      <label>封场工位<input id="closure-stage" value="主舞台" required></label>
+      <label>备用工位<input id="closure-backup" value="侧舞台" placeholder="留空表示不启用"></label>
+      <label>巡检时刻<input id="closure-asof" type="time" value="12:00" required></label>
+      <label>封场开始<input id="closure-start" type="time" value="12:00" required></label>
+      <label>封场结束<input id="closure-end" type="time" value="14:00" required></label>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="primary">生成恢复执行单</button>
+      <button type="button" id="closure-archive">归档恢复单</button>
+    </div>
+  </form>
+</details>

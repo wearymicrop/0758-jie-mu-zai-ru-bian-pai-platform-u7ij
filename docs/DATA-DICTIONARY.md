@@ -23,3 +23,21 @@ UTF-8，支持文件头 BOM。每个物理行一个对象，行号从 1 开始�
 ## 输出和证据
 
 输入物理行在采信、重传、空行或源隔离中唯一归类。每条采信工单在 `scheduled`、`pending` 或 `isolated` 中唯一归类。`line` 是工单行号，`source_index` 是日历预约项位置，`related` 保存环成员、前置工单、预约号或资源键。超时按作业完工减截止计算。清场时间仅占用舞台。原有预约重叠单独报告。归档保存完整输入与计算结果，摘要按稳定 JSON 和规则版本计算。
+
+## 停场事件
+
+| 字段 | 类型 | 规则 |
+|---|---|---|
+| `id` | 字符串 | 停场事件业务键，进入恢复单号摘要 |
+| `stage` | 字符串 | 封场工位，必须在日历 `stages` 中 |
+| `start`、`end` | 整数分钟 | 封场半开区间，须与工位有效营业窗口有交集，`start < end` |
+| `as_of` | 整数分钟 | 午间巡检时刻，缺省取 `start`；须满足 `0 ≤ as_of ≤ start` |
+| `backup_stage` | 字符串 | 可选备用工位；须与封场工位不同且在日历中存在 |
+
+## 恢复执行单
+
+- 每条原排程工序保留 `original_stage`、`original_start`、`original_end`。`entry_status` 是开工事实：`locked`（巡检前完工或封场后才开始）、`active`（巡检时已开工）、`waiting`（未开工），原未落位工单保留 `pending`/`isolated`。
+- `recovery_status` 是恢复安排：维持 `entry_status`、落为 `relocated`（改场到备用工位）或回落 `waiting`（仍待排）。`relocated` 布尔位与开工事实正交。
+- 重排工序给出新的 `start`、`end`、`stage_end`、`tech` 与 `related` 阻塞证据；`late_minutes` 按恢复后完工减原截止计算，截止不顺延。
+- `gaps` 按工位列出恢复后的半开空档与分钟数，`cause` 为停场事件号或 `排程空档`；`late` 单列超时；`summary` 汇总锁定、开工中、等待、改场、待排与超时计数。
+- 恢复单号由规则版本、工单/日历摘要与事件摘要共同决定，存入独立 `recoveries` 表；同事件重复或并发提交复用同一行，失败不写入。下载联单包含事件、恢复结果与基线勾稽。

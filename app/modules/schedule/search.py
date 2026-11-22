@@ -2,8 +2,9 @@ from app.modules.calendars.registry import choices
 from app.modules.conflicts.occupancy import blockers
 
 
-def search(order, calendar, holds, earliest, excluded):
-    stage_key = 'stage:' + order["stage"]
+def search(order, calendar, holds, earliest, excluded, stage_override=None):
+    stage = stage_override or order["stage"]
+    stage_key = 'stage:' + stage
     crew = choices(calendar, order["role"])
     best = []
     seen = set()
@@ -17,7 +18,7 @@ def search(order, calendar, holds, earliest, excluded):
             seen.add(tech_key)
             continue
         skipped = set()
-        for a, b in calendar["effective_stages"][order["stage"]]:
+        for a, b in calendar["effective_stages"][stage]:
             for c, d in calendar["effective_tech"][tech]:
                 start = max(a, c, earliest)
                 latest = min(b - duration - reset, d - duration)

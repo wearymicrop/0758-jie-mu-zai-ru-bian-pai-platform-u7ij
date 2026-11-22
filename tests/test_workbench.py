@@ -18,8 +18,9 @@ def test_custom_accepts_existing_sample_body(client):
     assert response.json()['result']['reconcile']['scheduled']==15
 
 
-def test_html_has_seven_navigation_links(client):
+def test_html_has_eight_navigation_links(client):
     response=client.get('/')
     assert response.status_code==200
-    assert response.text.count('data-view=')==7
+    assert response.text.count('data-view=')==8
     assert client.get('/static/curtain.js').status_code==200
+    assert client.get('/static/recovery.js').status_code==200

@@ -3,7 +3,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TITLE = "节目载入编排台"
-RULE_VERSION = "tandem-stage-1.0"
+RULE_VERSION = "tandem-stage-1.1"
 SOURCES = ('orders', 'calendar')
 
 

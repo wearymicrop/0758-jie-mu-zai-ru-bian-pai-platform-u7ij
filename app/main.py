@@ -13,11 +13,13 @@ from app.modules.conflicts.handler import router as conflicts_api
 from app.modules.schedule.handler import router as schedule_api
 from app.modules.reconcile.handler import router as reconcile_api
 from app.modules.dispatch.handler import router as dispatch_api
+from app.modules.recovery.handler import router as recovery_api
 
 app = FastAPI(title=TITLE)
 app.add_exception_handler(DomainError, render_error)
 app.mount("/static", StaticFiles(directory=ROOT / "app/static"), name="static")
-for router in (orders_api, dependencies_api, calendars_api, conflicts_api, schedule_api, reconcile_api, dispatch_api, web.router):
+for router in (orders_api, dependencies_api, calendars_api, conflicts_api, schedule_api,
+               reconcile_api, dispatch_api, recovery_api, web.router):
     app.include_router(router)
 
 
